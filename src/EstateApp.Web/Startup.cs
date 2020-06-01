@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EstateApp.Data.DatabaseContext.ApplicationDbContext;
 using EstateApp.Data.DatabaseContext.AuthenticationDbContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -26,8 +27,19 @@ namespace EstateApp.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContextPool<AuthenticationDbContext>(options => options.UseSqlServer(
-                Configuration.GetConnectionString("AuthenticationConnection")
+                Configuration.GetConnectionString("AuthenticationConnection"),
+                sqlServerOptions => {
+                    sqlServerOptions.MigrationsAssembly("EstateApp.Data");
+                }
             ));
+
+            services.AddDbContextPool<ApplicationDbContext>(options => options.UseSqlServer(
+                Configuration.GetConnectionString("ApplicationConnection"),
+                sqlServerOptions => {
+                    sqlServerOptions.MigrationsAssembly("EstateApp.Data");
+                }
+            ));
+
             services.AddControllersWithViews();
         }
 
