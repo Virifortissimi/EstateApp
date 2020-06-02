@@ -4,6 +4,5 @@ namespace EstateApp.Data.Entities
 {
     public class ApplicationUser : IdentityUser
     {
-        
     }
 }

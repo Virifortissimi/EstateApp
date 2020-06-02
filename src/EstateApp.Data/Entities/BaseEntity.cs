@@ -2,7 +2,7 @@ using System;
 
 namespace EstateApp.Data.Entities
 {
-    public abstract class BaseEntity
+    public class BaseEntity
     {
         public string Id { get; set; }
         public bool isDeleted { get; set; }
