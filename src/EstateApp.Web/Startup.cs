@@ -39,7 +39,7 @@ namespace EstateApp.Web
                     sqlServerOptions.MigrationsAssembly("EstateApp.Data");
                 }
             ));
-
+            
             services.AddControllersWithViews();
         }
 
