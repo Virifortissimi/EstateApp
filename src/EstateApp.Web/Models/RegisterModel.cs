@@ -8,7 +8,7 @@ namespace EstateApp.Web.Models
 
         [Required]
         [Display(Name = "Full Name")]
-        public string Name { get; set; }
+        public string FullName { get; set; }
 
         [Required]
         [Display(Name = "Email Address")]
