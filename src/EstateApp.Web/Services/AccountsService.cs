@@ -11,14 +11,11 @@ namespace EstateApp.Web.Services
     public class AccountsService : IAccountsService
     {
         private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
 
         public AccountsService(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            UserManager<ApplicationUser> userManager)
         {
             _userManager = userManager;
-            _signInManager = signInManager;
         }
 
         public async Task<ApplicationUser> CreateAsycn(RegisterModel model)
